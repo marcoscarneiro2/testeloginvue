@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vue.js crud</title>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <h1 class="fleft">Lista de usuários</h1>
+            <button class="fright addNew" @click="showingAddModal = true;">Adicionar</button>
+            <div class="clear"></div>
+            <hr>
+            <table class="list">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>eeee</td>
+                    <td>rrr</td>
+                    <td>ttt</td>
+                    <td><button @click="showingEditModal = true;">Editar</button></td>
+                    <td><button @click="showingDeleteModal = true;">Excluir</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="modal" id="addModal" v-if="showingAddModal">
+            <div class="modalContainer">
+                 <div class="modalHeading">
+                    <p class="fleft"> Adicionar novo usuario</p>
+                    <buton class="fright close" @click="showingAddModal = false;">X</buton>
+                    <div class="clear"></div>
+                    </div>
+                 <div class="modalContent">
+                    <table class="form" action="api.php">
+                        <tr>
+                            <th>Username</th>
+                            <th>:</th>
+                            <td><input type="text" name="username"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <th>:</th>
+                            <td><input type="text" name="email"></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <th>:</th>
+                            <td><input type="text" name="mobile"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <td><button @click="showingAddModal = false;">Salvar</button></td>
+                        </tr>
+                    </table>
+                 </div>
+            </div>
+        </div>
+
+        <!--MODAL EDITAR USUÁRIO-->
+        <div class="modal" id="editModal" v-if="showingEditModal">
+            <div class="modalContainer">
+                 <div class="modalHeading">
+                    <p class="fleft"> Editar Perfil</p>
+                    <buton class="fright close" @click="showingEditModal = false;">X</buton>
+                    <div class="clear"></div>
+                    </div>
+                 <div class="modalContent">
+                    <table class="form">
+                        <tr>
+                            <th>Username</th>
+                            <th>:</th>
+                            <td><input type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <th>:</th>
+                            <td><input type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <th>:</th>
+                            <td><input type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <td><button @click="showingEditModal = false;">Atualizar</button></td>
+                        </tr>
+                    </table>
+                 </div>
+            </div>
+        </div>
+
+        <!--DELETAR USUARIO-->
+        <div class="modal" id="deleteModal" v-if="showingDeleteModal">
+            <div class="modalContainer">
+                 <div class="modalHeading">
+                    <p class="fleft"> Editar Perfil</p>
+                    <buton class="fright close" @click="showingDeleteModal = false;">X</buton>
+                    <div class="clear"></div>
+                    </div>
+                 <div class="modalContent">
+                   <p>Você deseja realmente excluir seu perfil ?</p>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <button @click="showingDeleteModal = false;">Sim</button>
+                   <button @click="showingDeleteModal = false;">Não</button>
+                 </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>
